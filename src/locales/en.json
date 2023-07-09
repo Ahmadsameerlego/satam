@@ -1,0 +1,10 @@
+{
+    "nav":{
+        "main" : "Home",
+        "exploreJobs" : "Explore Jobs",
+        "register" : "Register",
+        "login" : "Login",
+        "whoUs" : "Who Us",
+        "terms" : "Terms & Conditions"
+    }
+}
