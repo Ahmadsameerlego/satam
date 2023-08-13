@@ -4,7 +4,12 @@ import login from '../views/loginPage.vue';
 import register from '../views/registerPage.vue';
 import compeleteRegister from '../views/compeleteRegister.vue';
 import exploreJobs from '@/views/exploreJobs.vue';
-import jobDetails from '@/views/jobDetails.vue'
+import jobDetails from '@/views/jobDetails.vue';
+import chatRooms from '@/views/chatRooms.vue';
+import singleChat from '@/views/singleChatRoom.vue';
+import contactUs from '@/views/contactUs.vue';
+import companyProfile from '@/views/companyProfile.vue';
+import orders from '@/views/MyOrders.vue'
 
 const routes = [
   {
@@ -36,6 +41,31 @@ const routes = [
     path : '/jobDetails/:id',
     name : 'jobDetails',
     component : jobDetails
+  },
+  {
+    path : '/chatRooms',
+    name : 'chatRooms',
+    component : chatRooms
+  },
+  {
+    path : '/singleChat/:id',
+    name : 'singleChat',
+    component : singleChat
+  },
+  {
+    path : '/contactUs',
+    name : 'contactUs',
+    component : contactUs
+  },
+  {
+    path : '/companyProfile/:id',
+    name : 'companyProfile',
+    component : companyProfile
+  },
+  {
+    path : '/orders',
+    name : 'orders',
+    component : orders
   }
 
 ]

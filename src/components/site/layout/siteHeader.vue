@@ -1,5 +1,5 @@
 <template>
-  <header id="header" class="pt-4 pb-4">
+  <header id="header" class="pt-4 pb-4 mb-3">
     <div class="container">
         <!-- full header  -->
         <div class="d-flex justify-content-between align-items-center">
@@ -76,6 +76,8 @@ export default {
 
 <style lang="scss">
     header{
+        background: #FFF;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
         .logo{
             width: 135px;
             height: 120px;

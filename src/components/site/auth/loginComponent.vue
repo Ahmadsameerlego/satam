@@ -3,14 +3,14 @@
     <div class="container">
       <!-- start breadcrumb  -->
       <div class="breadcrumb d-flex">
-        <router-link to="/" class="inActive"> الرئيسية </router-link>&nbsp; - &nbsp;
-        <p class="active mainColor"> تسجيل الدخول </p>
+        <router-link to="/" class="inActive"> {{ $t('nav.main') }} </router-link>&nbsp; - &nbsp;
+        <p class="active mainColor"> {{ $t('nav.login') }} </p>
       </div>
 
       <!-- start login section  -->
       <section class="loginSection" style="width:93%;margin:auto" >
-        <h3 class="fw-bold mb-3"> تسجيل الدخول </h3>
-        <p class="loginParagraph fw-bold"> برجاء ادخال البيانات التاليه لتتمكن من تسجيل الدخول الي حسابك </p>
+        <h3 class="fw-bold mb-3"> {{ $t('nav.login') }} </h3>
+        <p class="loginParagraph fw-bold"> {{ $t('auth.loginDesc') }} </p>
         <div class="row" style="width:93%;margin:auto">
 
           <!-- right side  -->
@@ -21,8 +21,8 @@
               <!-- phone  -->
               <div class="position-relative flex-auto">
 
-                  <label for="integeronly" class="label fw-bold block mb-2"> رقم الجوال </label>
-                  <InputNumber v-model="value1" class="defaultInput" inputId="integeronly" placeholder="الرجاء ادخال رقم الجوال" />
+                  <label for="integeronly" class="label fw-bold block mb-2"> {{ $t('auth.phone') }} </label>
+                  <InputNumber v-model="value1" class="defaultInput" inputId="integeronly" :placeholder="$t('auth.phoneDesc')" />
 
                   <!-- icon  -->
                   <div class="inputIcon">
@@ -38,8 +38,8 @@
               <!-- password  -->
               <div class="position-relative flex-auto mt-3">
 
-                  <label for="integeronly" class="label fw-bold block mb-2"> كلمة المرور </label>
-                  <Password v-model="value" :feedback="false" toggleMask class="defaultInput" placeholder="الرجاء ادخال كلمة المرور" />
+                  <label for="integeronly" class="label fw-bold block mb-2"> {{ $t('auth.password') }} </label>
+                  <Password v-model="value" :feedback="false" toggleMask class="defaultInput" :placeholder="$t('auth.passwordPlace')" />
 
                   <!-- icon  -->
                   <div class="inputIcon">
@@ -50,23 +50,23 @@
               </div>
 
               <div class="d-flex justify-content-end mt-2">
-                <button class="btn forgetPass" type="button" @click="visible=true"> نسيت كلمة المرور </button>
+                <button class="btn forgetPass" type="button" @click="visible=true"> {{ $t('auth.forgetPass') }} </button>
               </div>
 
               <!-- submit  -->
               <div class="mt-4">
-                <button class="main_btn w-100 pt-3 pb-3 fs-5"> تسجيل الدخول </button>
+                <button class="main_btn w-100 pt-3 pb-3 fs-5"> {{ $t('nav.login') }} </button>
               </div>
 
               <!-- new account  -->
               <div class="flex_center newAcc">
-                <p class="fs-6 mt-4 fw-6"> هل لديك حساب ؟  <router-link to="/register" class="mainColor fw-bold"> حساب جديد </router-link> </p>  
+                <p class="fs-6 mt-4 fw-6"> {{ $t('auth.haveAnAcc') }} ؟  <router-link to="/register" class="mainColor fw-bold"> {{ $t('auth.register') }} </router-link> </p>  
               </div>
 
 
               <!-- register problem  -->
               <div class="flex_center newAcc">
-                <p class="fs-6 mt-0 fw-6"> هل لديك مشكلة اثناء التسجيل <button  class="btn  mainColor contactUs" @click="visible2=true" type="button"> يرجى التواصل معنا </button> </p>  
+                <p class="fs-6 mt-0 fw-6"> {{ $t('auth.haveError') }} <button  class="btn  mainColor contactUs" @click="visible2=true" type="button"> {{ $t('auth.pleaseContact') }} </button> </p>  
               </div>
 
             </form>
@@ -84,8 +84,8 @@
 
       <!-- forget pass modal  -->      
       <Dialog v-model:visible="visible" modal :style="{ width: '50vw' }">
-          <h5 class="fw-bold text-center"> نسيت كلمة المرور </h5>
-          <p class=" text-center"> الرجاء ادخال رقم الجوال ليتم ارسال كود التحقق الخاص بك </p>
+          <h5 class="fw-bold text-center"> {{ $t('auth.forgetPass') }} </h5>
+          <p class=" text-center"> {{ $t('auth.forgetDesc') }} </p>
           <div class="logo">
             <img :src="require('@/assets/imgs/forget1.svg')" alt="">
           </div>
@@ -95,8 +95,8 @@
               <!-- phone  -->
               <div class="position-relative flex-auto">
 
-                  <label for="integeronly" class="label fw-bold block mb-2"> رقم الجوال </label>
-                  <InputNumber v-model="value1" class="defaultInput" inputId="integeronly" placeholder="الرجاء ادخال رقم الجوال" />
+                  <label for="integeronly" class="label fw-bold block mb-2"> {{ $t('auth.phone') }} </label>
+                  <InputNumber v-model="value1" class="defaultInput" inputId="integeronly" :placeholder="$t('auth.phoneDesc')" />
 
                   <!-- icon  -->
                   <div class="inputIcon">
@@ -112,7 +112,7 @@
 
               <!-- submit  -->
               <div class="mt-4">
-                <button class="main_btn  pt-3 pb-3 fs-5 w-75 mx-auto flex_center"> تحقق </button>
+                <button class="main_btn  pt-3 pb-3 fs-5 w-75 mx-auto flex_center"> {{ $t('auth.confirm') }} </button>
               </div>
 
             </form>
@@ -120,8 +120,8 @@
 
        <!-- otp modal  -->      
       <Dialog v-model:visible="otp" modal :style="{ width: '50vw' }">
-          <h5 class="fw-bold text-center"> كود التحقق </h5>
-          <p class=" text-center"> الرجاء ادخال كود التحقق الذي تم ارساله الي رقم جوالك ليتم تفعيل الحساب الخاص بك </p>
+          <h5 class="fw-bold text-center"> {{ $t('auth.confirmCode') }} </h5>
+          <p class=" text-center"> {{ $t('auth.confirmDesc') }} </p>
           <div class="logo">
             <img :src="require('@/assets/imgs/forget2.svg')" alt="">
           </div>
@@ -156,16 +156,16 @@
 
               <!-- submit  -->
               <div class="mt-4">
-                <button class="main_btn  pt-3 pb-3 fs-5 w-75 mx-auto flex_center"> تحقق </button>
+                <button class="main_btn  pt-3 pb-3 fs-5 w-75 mx-auto flex_center"> {{ $t('auth.confirm') }} </button>
               </div>
 
 
               <div class="flex_between w-75 mx-auto d-flex">
                     <div class="flex_center newAcc">
-                      <p class="fs-6 mt-4 fw-6"> لم تستلم الكود ؟  <button type="button" class="mainColor fw-bold btn p-0"> اعد الارسال </button> </p>  
+                      <p class="fs-6 mt-4 fw-6"> {{ $t('auth.haveNoCode') }} ؟  <button type="button" class="mainColor fw-bold btn p-0"> {{ $t('auth.resend') }} </button> </p>  
                     </div>
                     
-                    <p v-if="timer > 0" class="text-center mt-3">الوقت المتبقي  <span class="mainColor">{{ timer }} ثانية</span> </p>
+                    <p v-if="timer > 0" class="text-center mt-3"> {{ $t('auth.remindTime') }}  <span class="mainColor">{{ timer }} ثانية</span> </p>
 
               </div>
 
@@ -186,8 +186,8 @@
                 <!-- phone  -->
                 <div class="position-relative flex-auto">
 
-                    <label for="integeronly" class="label fw-bold block mb-2"> اسم المستخدم </label>
-                    <InputText type="text" class="defaultInput2" v-model="name" placeholder="الرجاء ادخال اسم المستخدم" />
+                    <label for="integeronly" class="label fw-bold block mb-2"> {{ $t('auth.username') }} </label>
+                    <InputText type="text" class="defaultInput2" v-model="name" :placeholder="$t('auth.uerPlace')" />
                     <!-- icon  -->
                     <div class="inputIcon">
                       <img :src="require('@/assets/imgs/user.svg')" alt="">
@@ -200,8 +200,8 @@
                 <!-- phone  -->
                 <div class="position-relative flex-auto">
 
-                    <label for="integeronly" class="label fw-bold block mb-2"> رقم الجوال </label>
-                    <InputNumber v-model="value1" class="defaultInput" inputId="integeronly" placeholder="الرجاء ادخال رقم الجوال" />
+                    <label for="integeronly" class="label fw-bold block mb-2"> {{ $t('auth.phone') }} </label>
+                    <InputNumber v-model="value1" class="defaultInput" inputId="integeronly" :placeholder="$t('phonePlace')" />
 
                     <!-- icon  -->
                     <div class="inputIcon">

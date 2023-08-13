@@ -49,6 +49,15 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import Paginate from "vuejs-paginate-next";
 
 
+// importing AOS css style globally
+import 'aos/dist/aos.css'
+
+// InfiniteLoading 
+import InfiniteLoading from "v3-infinite-loading";
+import "v3-infinite-loading/lib/style.css"; //required if you're not going to override default slots
+
+
+
 createApp(App)
 .use(i18n)
 .use(VueI18n)
@@ -66,4 +75,5 @@ createApp(App)
 
     },
 })
+.component("infinite-loading", InfiniteLoading)
 .mount('#app')

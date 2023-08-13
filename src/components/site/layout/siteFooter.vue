@@ -32,7 +32,7 @@
                     </router-link>
                   </li>
                   <li>
-                    <router-link to="/"
+                    <router-link to="/contactUs"
                       >
                       <div class="my-l">تواصل معنا</div>
                     </router-link>

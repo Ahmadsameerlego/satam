@@ -65,11 +65,28 @@ export default {
                 }
             }
         }
-        .job_image{
+        
+    }
+
+    .job_image{
+            position: relative;
             height: 320px;
             img{
                 object-fit: contain;
+                animation: MoveUpDown 5s linear infinite;
+                position: absolute;
+                top: 0;
+                left: 0;
             }
+        }
+
+    @keyframes MoveUpDown {
+        0%,
+        100% {
+            top: 0;
+        }
+        50% {
+            top: -50px;
         }
     }
 </style>
